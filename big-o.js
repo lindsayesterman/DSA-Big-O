@@ -110,3 +110,60 @@ function isWhat(n) {
   }
   return true;
 }
+
+//Iterative solutions and identification
+
+const countSheep = function (numOfSheep) {
+  for (let i = 0; i < numOfSheep; i++) {
+    console.log("Another sheep jumps over the fence");
+  }
+
+  console.log("All sheep jumped over the fence");
+};
+
+//O(n)
+
+const powerCalculatorRec = function (base, exp) {
+  let result = base;
+  for (let i = 1; i < exp; i++) {
+    result = result * base;
+  }
+
+  //O(n)
+
+  return result;
+};
+
+function reverseString(str) {
+  let reverse = "";
+  for (let i = str.length - 1; i >= 0; i--) {
+    reverse += str[i];
+  }
+
+  return reverse;
+}
+
+//O(n)
+
+const triangularNumber = function (nSide) {
+  let dots = 1;
+  for (let i = 2; i <= nSide; i++) {
+    dots += i;
+  }
+  return dots;
+};
+
+//O(n)
+
+const stringSplitter = function (string, split) {
+  let newString = "";
+
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] !== split) {
+      newString += string[i];
+    }
+  }
+  return newString;
+};
+
+//O(n)
