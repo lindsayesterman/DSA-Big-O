@@ -25,7 +25,7 @@ function areYouHere(arr1, arr2) {
   return false;
 }
 
-//4. Linear time O(n). Input directly proportional to time.
+//4. Linear time O(n). Input directly proportional to time. Loops through array.
 
 function doubleArrayValues(array) {
   for (let i = 0; i < array.length; i++) {
@@ -44,7 +44,7 @@ function naiveSearch(array, item) {
   }
 }
 
-//6. Exponential time O(2^n). Nested for loops.
+//6. Exponential time O(2^n). Arr * Arr.
 
 function createPairs(arr) {
   for (let i = 0; i < arr.length; i++) {
@@ -54,7 +54,7 @@ function createPairs(arr) {
   }
 }
 
-//7. Establishes what to do for base cases. 
+//7.  Linear time O(n). Establishes what to do for base cases. Pushes as many results needed to get to base cases.
 
 function compute(num) {
   let result = [];
@@ -68,4 +68,45 @@ function compute(num) {
     }
   }
   return result;
+}
+
+//8. Logarithmic time O(log(n)). Array 1/2s elements.
+
+function efficientSearch(array, item) {
+  let minIndex = 0;
+  let maxIndex = array.length - 1;
+  let currentIndex;
+  let currentElement;
+
+  while (minIndex <= maxIndex) {
+    currentIndex = Math.floor((minIndex + maxIndex) / 2);
+    currentElement = array[currentIndex];
+
+    if (currentElement < item) {
+      minIndex = currentIndex + 1;
+    } else if (currentElement > item) {
+      maxIndex = currentIndex - 1;
+    } else {
+      return currentIndex;
+    }
+  }
+  return -1;
+}
+
+//9. Constant time O(1). Time does not change with length.
+
+function findRandomElement(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+//10. Linear time O(n). Check each input.
+
+function isWhat(n) {
+  if (n < 2 || n % 1 !== 0) {
+    return false;
+  }
+  for (let i = 2; i < n; ++i) {
+    if (n % i === 0) return false;
+  }
+  return true;
 }
